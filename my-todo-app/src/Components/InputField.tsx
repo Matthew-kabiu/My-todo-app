@@ -1,24 +1,37 @@
-import { useRef } from "react";
-import "./input.css";
+import { useRef } from "react"; // Importing the useRef hook for managing input focus
+import "./input.css"; 
 
+// Defining the Props interface to specify the expected props for the component
 interface Props {
-  todo: string;
-  setTodo: React.Dispatch<React.SetStateAction<string>>;
-  handleAdd: (e: React.FormEvent) => void;
+  todo: string; // Current value of the to-do input field
+  setTodo: React.Dispatch<React.SetStateAction<string>>; // Function to update the to-do state
+  handleAdd: (e: React.FormEvent) => void; // Function to handle form submission
 }
 
-const InputField: React.FC<Props>  = ({todo, setTodo ,handleAdd }) => {
-  // Use Reference Hook With Type Script
+// Functional component with destructured props
+const InputField: React.FC<Props> = ({ todo, setTodo, handleAdd }) => {
+  // Creating a reference for the input field to manage focus
   const inputRef = useRef<HTMLInputElement>(null);
 
-
-
   return (
-    <form action="" className="form" onSubmit={(e)=>{
-      handleAdd(e)
-      inputRef.current?.blur();
-      }}>
-      <input ref={inputRef} type="input" placeholder="Enter a task" className="input" value={todo} onChange={(e)=>setTodo(e.target.value)}/>
+    <form
+      action="" // Form action left empty as it's handled programmatically
+      className="form" // CSS class for styling the form
+      onSubmit={(e) => {
+        handleAdd(e); // Call the handleAdd function on form submission
+        inputRef.current?.blur(); // Remove focus from the input field after submission
+      }}
+    >
+      {/* Input field for entering a task */}
+      <input
+        ref={inputRef} // Attach the reference to the input field
+        type="input" // Input type as text
+        placeholder="Enter a task" // Placeholder text for the input
+        className="input" // CSS class for styling the input
+        value={todo} // Bind the input value to the todo state
+        onChange={(e) => setTodo(e.target.value)} // Update the todo state on input change
+      />
+      {/* Button to submit the form */}
       <button className="form-submit" type="submit">
         Go
       </button>
@@ -26,4 +39,4 @@ const InputField: React.FC<Props>  = ({todo, setTodo ,handleAdd }) => {
   );
 };
 
-export default InputField;
+export default InputField; // Exporting the InputField component for reuse
