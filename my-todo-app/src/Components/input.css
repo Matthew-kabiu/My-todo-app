@@ -1,0 +1,100 @@
+.form {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  position: relative;
+}
+
+.input{
+  width: 100%;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 25px;
+  border: none;
+  transition: 0.2s;
+  box-shadow: inset 0 0 5px black;
+  font-family: "Neucha", serif;
+}
+
+.input:focus{
+  box-shadow:0 0 10px 1000px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.form-submit{
+  text-transform: capitalize;
+  position: absolute;
+  right: 12px;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  font-size: 15px;
+  background-color: #2f74c0;
+  color: white;
+  transition: 0.2s all;
+  cursor: pointer;
+  box-shadow: 0 0 10px black;
+}
+
+.form-submit:hover{
+  background: #388ae2;
+}
+
+.form-submit:active {
+  transform: scale(0.8);
+  box-shadow:  0 0 5px black;
+}
+
+.todos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-evenly;
+  width: 90%;
+  flex-wrap: wrap;
+}
+
+.todos-single{
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 15px;
+  background: yellow;
+}
+
+.todos-single-text{
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: "Neucha", serif;
+  font-size: 15px;
+}
+
+.todo-icons{
+  display: flex;
+  gap: 5px;
+}
+
+
+.icon{
+  cursor: pointer;
+}
+
+
+/* Media Query */
+@media (max-width: 700px) {
+  .input {
+    width: 95%;
+  }
+
+  .todos{
+    width: 95%;
+  }
+
+  .todos-single{
+    width: 100%;
+  }
+}
